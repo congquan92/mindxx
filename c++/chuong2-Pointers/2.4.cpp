@@ -91,12 +91,8 @@ void list_insert_tail(myList &l) {
 
 void delete_first(myList &l) {
     node *p = l.head;
-    if (p != NULL) {
-        l.head = l.head->next;
-        delete (p);
-    } else {
-        l.tail = NULL;
-    }
+    l.head=l.head->next;
+    delete p;
 }
 
 void output(myList l) {
@@ -104,16 +100,69 @@ void output(myList l) {
         cout << p->info << " ";
     }
 }
-
+void sx(myList &l){
+    for(node *p=l.head;p!=nullptr;p=p->next){
+        for(node*q=p->next;q!=nullptr;q=q->next){
+            if(p->info > q->info){
+                int t = p->info;
+                p->info = q->info;
+                q->info = t;
+            }
+        }
+    }
+}
+void delete_end(myList &l){
+    if (l.head==nullptr)
+      cout << "Empty list!" << endl;
+    if (l.head == l.tail){
+      delete l.head;
+      l.head = l.tail = NULL;
+   }
+    node *temp = l.head;
+    while(temp->next !=l.tail){
+        temp=temp->next;
+    }
+    delete l.tail;
+    l.tail=temp;
+    l.tail->next=nullptr;
+    
+}
+void xoa_k(myList &l){
+    int n = sizeof(l.head);//lay so phan tu trong list
+    int k;
+    cout<<" nhap vi tri k = ";cin>>k;
+    if(k<n||k>n){
+        return;
+    }
+    if(k==1){
+        delete_first(l);
+       return;
+    }
+    node *p = l.head;
+    for(int i= 1 ;i <= k-2;i++){
+        p=p->next;
+    }
+    
+    node *temp = p->next;
+    p->next=p->next->next;
+    delete temp;
+}
 int main() {
+    
     myList l = {NULL, NULL};  // Initialize the list
     list_insert_tail(l);
-    cout << "Sum = " << sum(l) << endl;
-    cout << "Count Prime numbers : " << demNT(l) << endl;
-    cout << "Max = " << max(l) << endl;
-    chan_le(l);
-    cout << "\nDelete first = ";
-    delete_first(l);
+    // cout << "Sum = " << sum(l) << endl;
+    // cout << "Count Prime numbers : " << demNT(l) << endl;
+    // cout << "Max = " << max(l) << endl;
+    // chan_le(l);
+    // cout<<" \nDanh sach sau khi sap xep : ";
+    // sx(l);output(l);
+    //cout<<"\n Delete end = ";
+    //delete_end(l);
+    // cout << "\nDelete end = ";
+   // delete_first(l);
+   cout<<"\nxoa vi tri bat ky :\n ";
+    xoa_k(l);cout<<endl;
     output(l);
     return 0;
 }

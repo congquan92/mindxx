@@ -71,7 +71,7 @@ void get_k(mylist &l,int k){
         p=p->next;
     }
     node *t = make_node(x);
-    t->next = p->next;
+    t->next = p->next;                                                     
     p->next = t;
 }
 
@@ -119,17 +119,17 @@ void Delete_K(mylist &l){
     delete temp;
 }
 
-int Check(int x){
-    if(n<2) return -1;
-    for(int i=2;i<=sqrt(n);i++){
-        if(n%i==0) return -1;
+bool isPrime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0) return false;
     }
-    return 1;
+    return true;
 }
 
 void Prime(mylist l){
     for(node *p=l.head;p!=nullptr;p=p->next){
-        if(Check(p->data==1)) cout<<p->next<<" ";
+        if(isPrime(p->data)) cout<<p->data<<" ";
     }
 }
 
@@ -142,12 +142,12 @@ void Sum(mylist l){
 }
 
 void chan_le(mylist l){
-    int c=0,l=0;
+    int c=0,le=0;
     for(node *p=l.head;p!=nullptr;p=p->next){
         if(p->data % 2==0){
             c++;
         }else{
-            l++;
+            le++;
         }
     }
 cout<<" So Luong Phan Tu Chan Cua Danh Sach : "<<c<<".Gom Cac So : ";
@@ -156,7 +156,7 @@ cout<<" So Luong Phan Tu Chan Cua Danh Sach : "<<c<<".Gom Cac So : ";
            cout<<p->data<<" ";
     }
     }
-cout<<" So Luong Phan Tu Le Cua Danh Sach : "<<l<<".Gom Cac So : ";
+cout<<" So Luong Phan Tu Le Cua Danh Sach : "<<le<<".Gom Cac So : ";
     for(node *p=l.head;p!=nullptr;p=p->next){
         if(p->data % 2 != 0){
            cout<<p->data<<" ";
@@ -165,8 +165,8 @@ cout<<" So Luong Phan Tu Le Cua Danh Sach : "<<l<<".Gom Cac So : ";
 }
 
 void MaXX(mylist l){
-    int m =l.head;
-    for(node *p=l.head;p!=nullptr;p=p->next){
+    int m = l.head->data;
+    for(node *p=l.head->next;p!=nullptr;p=p->next){
         if(m<p->data) m = p->data;
     }
     cout<<" Max = "<<m;
@@ -185,6 +185,29 @@ void Sortt(mylist l){
     }
 }
 
+void delete_primes(mylist &l) {
+    node *p = l.head;
+    node *prev = nullptr;
+    while (p != nullptr) {
+        if (isPrime(p->data)) {
+            if (prev != nullptr) {
+                prev->next = p->next;
+                delete p;
+                p = prev->next;
+            } else {
+                Delete_first(l);
+                p = l.head;
+            }
+        } else {
+            prev = p;
+            p = p->next;
+        }
+    }
+}
+
+void tach_chan_le(mylist l){
+    
+}
 
 int main(){
     mylist l={nullptr,nullptr};
@@ -203,8 +226,9 @@ int main(){
         cout<<"9.So Luong Chan Va Le Cua Danh Sach.\n";
         cout<<"10.Phan Tu Lon Nhat Cua Danh Sach.\n";
         cout<<"11.Tong Cac Phan Tu Trong Danh Sach.\n";
-        cout<<"12.Sap Xep Tang.\n"
-        cout<<"13.Thoat\n";
+        cout<<"12.Sap Xep Tang.\n";
+        cout<<"13.Xoa Phan Chua So Nguyen To Trong Danh Sach L.\n";
+        cout<<"14.Thoat\n";
         cout<<"____________________________________\n";
         cout<<"Nhap Lua chon : ";
         int lc;cin>>lc;
@@ -247,6 +271,9 @@ int main(){
             Sortt(l);
         }
         if(lc==13){
+            delete_primes(l);
+        }
+        if(lc==14){
             break;
         }
     }

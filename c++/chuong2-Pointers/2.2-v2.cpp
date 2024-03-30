@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct hoso {
@@ -9,7 +9,7 @@ struct hoso {
     int tong, tong1;
 };
 
-void nhap(hoso*& hs, int& n) {
+void nhap(hoso* &hs, int& n) {
     cout << "Nhap so luong ho so: ";
     cin >> n;
     // tao mang ma con tro tro den vị tri dau tien cua mang
@@ -46,7 +46,7 @@ void thap(hoso* hs, int n) {
             x++;
             cout<<"---------------------------\n";
             cout << "Ho ten: " << (hs + i)->hoten;
-            cout << "\nDiem mon co ban: " << (hs + i)->moncb;3
+            cout << "\nDiem mon co ban: " << (hs + i)->moncb;
             cout << "\nDiem mon chuyen nganh 1: " << (hs + i)->c1;
             cout << "\nDiem mon chuyen nganh 2: " << (hs + i)->c2 << endl;
             cout<<"---------------------------\n";
@@ -57,16 +57,25 @@ void thap(hoso* hs, int n) {
 }
 
 void tong(hoso* hs, int n) {
+    cout<<" Sinh vien co diem 3 mon cao nhat la :\n";
     int m = (hs + 0)->tong;
-    for (int i = 1; i < n; i++) {
-        if (m < (hs + i)->tong) {
-            m = (hs + i)->tong;
+for (int i = 1; i < n; i++) {
+    if (m < (hs + i)->tong) {
+         m = (hs + i)->tong;
+}
+}
+for(int i=0;i<n;i++){
+        if((hs+i)->tong == m){
+             cout<<"---------------------------\n";
+            cout << "Ho ten: " << (hs + i)->hoten;
+            cout << "\nDiem mon co ban: " << (hs + i)->moncb;
+            cout << "\nDiem mon chuyen nganh 1: " << (hs + i)->c1;
+            cout << "\nDiem mon chuyen nganh 2: " << (hs + i)->c2 << endl;
+            cout<<"---------------------------\n";
         }
     }
-    xuat(hs, n);
-}
-
-void swap(hoso& hs1, hoso& hs2) {
+}    
+void swap(hoso &hs1, hoso &hs2) {
     hoso hstemp = hs1;
     hs1 = hs2;
     hs2 = hstemp;
@@ -89,7 +98,8 @@ while (1) {
     cout << "2. Hien thi danh sach cac sinh vien diem tong 3 mon.\n";
     cout << "3. Sap xep ds sinh vien theo tong 2 mon chuyen nganh tang dan.\n";
     cout << "4. Danh sach sinh vien co 1 mon duoi 5.\n";
-    cout << "5. Thoat\n";
+    cout << "5. Sinh vien co diem lon nhat.\n.";
+    cout << "6. Thoat\n";
     cout << "_________________________________\n";
     cout << "Lua chon tu 1-5: ";
 int l;cin >> l;
@@ -107,7 +117,10 @@ switch (l){
         case 4:
             thap(hs, n);
             break;
-        case 5:
+        case 5: 
+            tong(hs,n); 
+            break;   
+        case 6:
                 // Clean up dynamic memory before exiting, xoa bo nho
             delete[] hs;
             return 0;
