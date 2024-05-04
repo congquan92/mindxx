@@ -4,7 +4,7 @@ using namespace std;
 void chuyen_hoa(char *a){
      a = strlwr(a);
      a[0] =a[0] -32;
-     char* t =strchr(a, ' ');
+     char* t =strchr(a,' ');
      while(t !=nullptr){
         *(t + 1) = *(t + 1) -32;
         t = strchr(t+1,' ');

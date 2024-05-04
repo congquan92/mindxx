@@ -1,0 +1,10 @@
+So lon nhat MATRIX : 101  xuat hien : 4
+
+**Tổng từng cột:**
+Cột 1: 48
+Cột 2: 120
+Cột 3: 19
+Cột 4: 224
+Cột 5: 76
+
+So lon nhat MATRIX : 101

@@ -62,7 +62,7 @@ int main(){
 //     sum2(f,n);
     
   
-    // cout<<" ket qua cau c "<<sum(n);
+    cout<<" ket qua cau c "<<sum(n);
     // cout<<" \nket qua cau d"<<sum(n)-1;
 
 // cout<<endl;

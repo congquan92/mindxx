@@ -67,7 +67,7 @@ void sapxep(hoso hs[], int n){
 }	
 int main(){
     hoso hs[10000];
-    int n=9;
+    int n;
     while(1){
          cout<<"_________________________________\n";
         cout<<"_____________MENU________________\n";

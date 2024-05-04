@@ -35,13 +35,14 @@ void xoaNT(int *a,int& n){
 }}
 int main()
 {
-    int *a,n;
-    cin>>n;
-    a= new int (n);
+    int *a,n,k;
+    cout<<"Nhap N = ";cin>>n;
+    cout<<"Nhap vitri can xoa=";cin>>k;
+    a = new int (n);
     for(int i=0;i<n;i++){
         cin>>*(a+i);
     }
-    xoaNT(a,n);
+    xoa(a,n,k);
     xuat(a,n);
     
     return 0;

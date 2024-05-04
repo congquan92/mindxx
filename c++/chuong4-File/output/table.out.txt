@@ -1,0 +1,4 @@
+Dem cac so ngto: 13
+ Tong lon nhat cua dong : 236
+ Tong be nhat cua cot : 26
+ So lon nhat cua matrix : 101	So lan Xuat hien cua no :4

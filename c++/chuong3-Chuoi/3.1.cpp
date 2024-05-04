@@ -89,7 +89,7 @@ void ts(char *s){
 
 void max_word(char *s){
     char *t = strtok(s," ");
-    int max = 0;
+    int m = 0;
     while( t != nullptr){
         if(strlen(t) > m){
             m = strlen(t);

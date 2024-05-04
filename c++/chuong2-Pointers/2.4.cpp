@@ -29,6 +29,7 @@ int checkNT(int n) {
 }
 
 int demNT(myList l) {
+    
     int dem = 0;
     for (node *p = l.head; p != NULL; p = p->next) {
         if (checkNT(p->info) == 1) {
