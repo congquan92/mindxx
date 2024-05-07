@@ -19,12 +19,12 @@ int main() {
         cout << "Error opening file!" << endl;
         return 1;
     }
-    n=getw(f);
-    x=getw(f);//ham getw doc du lieu nhap them thi no tu nhay 
+    n=getw(f);//ham getw doc du lieu 
     cout<<n<<endl;
     a = new int[n];
     for(int i =0;i<n;i++){
         *(a+i) = getw(f);
+        //cout<<*(a+i)<<" ";
         if(check(*(a+i))==1) d++;
     }
     cout<<d;

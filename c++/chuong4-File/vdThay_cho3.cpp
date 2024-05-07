@@ -15,11 +15,9 @@ int main()
     int t=0;
 	sinhvien sv;
     cout<<sizeof(sv)<<endl;
-	fread(&sv,sizeof(sv),1,f);
-	while(!feof(f))
-	{	t +=sv.thuclinh;
+	while(fread(&sv,sizeof(sv),1,f)){	
+		t +=sv.thuclinh;
 		cout<<sv.manv<<" "<<sv.hoten<<" "<<" thuc linh "<<sv.luong+sv.thuong<<" "<<endl;
-		fread(&sv,sizeof(sv),1,f);
 	}
     cout<<t;
 	fclose(f);

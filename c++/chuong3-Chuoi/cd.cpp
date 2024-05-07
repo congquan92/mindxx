@@ -48,7 +48,7 @@ using namespace std;
 
 void xoa_p_l_ky_tu(char *s,int l,int p){
     char *temp = new char [strlen(s)+1];
-    strcpy(temp,s+p+l);
+    strcpy(temp,s+p+l);        
     s[p] = '\0';
     strcat(s,temp);
 }
