@@ -59,7 +59,7 @@ void delete_primes(mylist &l) {
     node *prev = nullptr;
 
     while (p != nullptr) {
-        if (isPrime(p->data)) {
+        if (isPrime(p->data)){
             if (prev != nullptr) {
                 prev->next = p->next;
                 delete p;
@@ -68,7 +68,7 @@ void delete_primes(mylist &l) {
                 delete_first(l);
                 p = l.head;
             }
-        } else {
+        }else{
             prev = p;
             p = p->next;
         }

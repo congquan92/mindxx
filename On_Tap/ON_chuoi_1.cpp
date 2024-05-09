@@ -21,7 +21,7 @@ void cau_3(char *s){
     s[0] = s[0] - 32;
     char *temp = strchr(s,' ');
     while(temp!=nullptr){
-        *(temp +1) =*(temp +1) -32;
+        *(temp +1) =*(temp +1) - 32;
         temp = strchr(temp+1,' ');
     }
 }
